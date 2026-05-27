@@ -558,6 +558,16 @@ body.dark-mode .main-header {
     font-weight: 600;
 }
 
+.philosophy-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
 /* Down-Time Chronicles Section */
 .downtime-grid {
     display: grid;
