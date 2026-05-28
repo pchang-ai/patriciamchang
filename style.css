@@ -97,6 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     color: var(--text-secondary);
+    text-wrap: pretty;
 }
 
 .text-accent {
@@ -1300,9 +1301,17 @@ body.dark-mode .floating-dock {
     padding: 15px 0;
 }
 
-.travel-map-section .section-header {
+.section-header-map {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin: 0 auto 24px auto;
     max-width: 1000px;
-    margin-bottom: 16px;
+}
+
+.map-header-content {
+    flex: 1;
 }
 
 .map-container {
@@ -1318,24 +1327,22 @@ body.dark-mode .floating-dock {
     transition: var(--transition-smooth);
 }
 
-.map-legend {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.map-legend-outside {
+    display: flex;
+    gap: 20px;
     background-color: rgba(253, 251, 247, 0.95);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 10px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    padding: 10px 18px;
     z-index: 15;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+    flex-shrink: 0;
 }
 
-body.dark-mode .map-legend {
+body.dark-mode .map-legend-outside {
     background-color: rgba(24, 32, 48, 0.95);
 }
 
@@ -1343,7 +1350,7 @@ body.dark-mode .map-legend {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -1543,20 +1550,17 @@ body.dark-mode .pin-tooltip::after {
     .pin-tooltip p:not(.pin-type) {
         font-size: 0.75rem;
     }
-    .map-legend {
-        position: relative;
-        top: auto;
-        bottom: auto;
-        left: auto;
-        margin: 16px auto 0 auto;
-        width: calc(100% - 32px);
-        max-width: 320px;
-        flex-direction: row;
+    .section-header-map {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+    .map-legend-outside {
+        align-self: center;
+        margin: 0 auto;
+        width: fit-content;
         justify-content: center;
-        gap: 20px;
-        background-color: var(--bg-card);
-        border: 1px solid var(--border-color);
-        box-shadow: var(--card-shadow);
     }
 }
 

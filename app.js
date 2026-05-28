@@ -179,14 +179,37 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.className = 'form-status-message';
             formStatus.textContent = '';
             
-            // Mock server request latency
-            setTimeout(() => {
+            const nameValue = document.getElementById('form-name').value;
+            const emailValue = document.getElementById('form-email').value;
+            const messageValue = document.getElementById('form-message').value;
+
+            // Submit using FormSubmit AJAX endpoint
+            fetch("https://formsubmit.co/ajax/patriciamww.chang@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: nameValue,
+                    email: emailValue,
+                    message: messageValue
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .then(data => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
                 
                 // Show success status
                 formStatus.classList.add('success');
-                formStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been received.';
+                formStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent to Patricia.';
                 
                 // Reset form fields
                 contactForm.reset();
@@ -199,8 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         formStatus.style.opacity = '1';
                     }, 500);
                 }, 5000);
-                
-            }, 1500);
+            })
+            .catch(error => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                formStatus.classList.add('error');
+                formStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Oops! Something went wrong. Please try again.';
+                console.error('Error submitting form:', error);
+            });
         });
     }
 });
