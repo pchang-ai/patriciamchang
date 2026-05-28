@@ -430,7 +430,7 @@ body.dark-mode .main-header {
 
 .card-header h3 {
     font-size: 1.15rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Bento Card Internal Content */
@@ -452,11 +452,11 @@ body.dark-mode .main-header {
 
 .about-photo-wrapper {
     flex-shrink: 0;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+    width: 180px;
+    height: 240px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -537,7 +537,7 @@ body.dark-mode .main-header {
 .card-philosophy {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
 }
@@ -589,27 +589,58 @@ body.dark-mode .main-header {
     transform: scale(1.05);
 }
 
-.interests-list {
+.interests-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-top: 16px;
-}
-
-.interest-item {
-    display: flex;
-    align-items: center;
     gap: 12px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    margin-top: 16px;
+    width: 100%;
 }
 
-.interest-item i {
-    color: var(--accent);
-    font-size: 1.15rem;
-    width: 24px;
-    text-align: center;
+.interest-bubble {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.interest-bubble:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
+}
+
+body.dark-mode .interest-bubble:hover {
+    box-shadow: 0 4px 12px rgba(82, 183, 136, 0.15);
+}
+
+.interest-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.interest-bubble:hover .interest-title {
+    color: #FFFFFF;
+}
+
+.interest-details {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+    transition: var(--transition-fast);
+}
+
+.interest-bubble:hover .interest-details {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Down-Time Chronicles Section */
@@ -1187,8 +1218,186 @@ body.dark-mode .floating-dock {
     }
 
     .about-photo-wrapper {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+        border-radius: 12px;
     }
 }
+
+/* Travel Map Section Styles */
+.travel-map-section {
+    background-color: var(--bg-secondary);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    background-color: #FFFFFF;
+    transition: var(--transition-smooth);
+}
+
+body.dark-mode .map-container {
+    background-color: #121824;
+}
+
+body.dark-mode .map-bg {
+    filter: invert(0.9) hue-rotate(180deg) brightness(0.9) contrast(1.1);
+}
+
+.map-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map-pin {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.pin-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: var(--transition-smooth);
+    border: 2px solid #FFFFFF;
+}
+
+body.dark-mode .pin-dot {
+    border-color: var(--bg-card);
+}
+
+.pin-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    opacity: 0.4;
+    animation: pinPulse 2s infinite ease-out;
+    pointer-events: none;
+}
+
+@keyframes pinPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.map-pin:hover .pin-dot {
+    transform: scale(1.2);
+    background-color: var(--accent-hover);
+}
+
+/* Tooltip */
+.pin-tooltip {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 240px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.pin-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--bg-card) transparent transparent transparent;
+}
+
+.pin-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 9px;
+    border-style: solid;
+    border-color: var(--border-color) transparent transparent transparent;
+    z-index: -1;
+}
+
+body.dark-mode .pin-tooltip::after {
+    border-color: var(--bg-card) transparent transparent transparent;
+}
+
+.map-pin:hover .pin-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.pin-tooltip h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.pin-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.pin-tooltip p:not(.pin-type) {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .pin-tooltip {
+        width: 180px;
+        padding: 10px;
+    }
+    .pin-tooltip h4 {
+        font-size: 0.85rem;
+    }
+    .pin-tooltip p:not(.pin-type) {
+        font-size: 0.75rem;
+    }
+}
+

@@ -127,26 +127,26 @@
                                 <i class="fa-solid fa-mountain-sun text-accent"></i>
                                 <h3>Interests</h3>
                             </div>
-                            <div class="interests-list">
-                                <div class="interest-item">
-                                    <i class="fa-solid fa-route"></i>
-                                    <span>Multi-day Trekking</span>
+                            <div class="interests-wrapper">
+                                <div class="interest-bubble">
+                                    <span class="interest-title">Multi-day Trekking</span>
+                                    <span class="interest-details">(Altavia 2, Everest Base Camp, Tour du Mont Blanc, Salkantay)</span>
                                 </div>
-                                <div class="interest-item">
-                                    <i class="fa-solid fa-person-running"></i>
-                                    <span>Distance Running</span>
+                                <div class="interest-bubble">
+                                    <span class="interest-title">Distance Running</span>
+                                    <span class="interest-details">(Austin and Brooklyn New York full marathons)</span>
                                 </div>
-                                <div class="interest-item">
-                                    <i class="fa-solid fa-dumbbell"></i>
-                                    <span>Fitness &amp; Health</span>
+                                <div class="interest-bubble">
+                                    <span class="interest-title">Fitness &amp; Health</span>
+                                    <span class="interest-details">(F45 coach, NASM personal trainer)</span>
                                 </div>
-                                <div class="interest-item">
-                                    <i class="fa-solid fa-campground"></i>
-                                    <span>Family Campervan Trips</span>
+                                <div class="interest-bubble">
+                                    <span class="interest-title">Family Campervan Trips</span>
+                                    <span class="interest-details">(Washington to/from Texas, Canada, Idaho)</span>
                                 </div>
-                                <div class="interest-item">
-                                    <i class="fa-solid fa-earth-americas"></i>
-                                    <span>Globetrotting</span>
+                                <div class="interest-bubble">
+                                    <span class="interest-title">Globetrotting</span>
+                                    <span class="interest-details">(see interactive map below)</span>
                                 </div>
                             </div>
                         </div>
@@ -349,6 +349,103 @@
                         <h3>Family Operations</h3>
                         <p>Managing the beautiful chaos of raising a small but unforgettable team of two, coordinating household logistics, planning, and maintenance.</p>
                         <span class="downtime-badge">Daily Focus</span>
+                    </div>
+                </div>
+
+                <!-- Back to Top Button -->
+                <div class="back-to-top-container fade-in-up">
+                    <a href="#hero" class="back-to-top-btn"><i class="fa-solid fa-arrow-up"></i> Back to Home</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Globetrotting Map Section -->
+        <section id="travel-map" class="travel-map-section section-padding">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2 class="section-title">Globetrotting Map</h2>
+                    <p class="section-subtitle">An interactive look at key treks, marathons, and campervan routes across the globe.</p>
+                </div>
+
+                <div class="map-container fade-in-up">
+                    <img src="assets/world_map.png" alt="World Map" class="map-bg">
+                    
+                    <!-- Map Pins -->
+                    <!-- Pin 1: Nepal -->
+                    <div class="map-pin" style="top: 45%; left: 74.5%;" data-location="nepal">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Everest Base Camp</h4>
+                            <p class="pin-type">Multi-day Trekking</p>
+                            <p>Trekking through the Himalayas to the foot of Mt. Everest in Nepal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 2: Tour du Mont Blanc -->
+                    <div class="map-pin" style="top: 31%; left: 49.3%;" data-location="tmb">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Tour du Mont Blanc</h4>
+                            <p class="pin-type">Multi-day Trekking</p>
+                            <p>Trekking 170km through France, Italy, and Switzerland around the Mont Blanc massif.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 3: Alta Via 2 -->
+                    <div class="map-pin" style="top: 32.5%; left: 50.8%;" data-location="altavia">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Alta Via 2</h4>
+                            <p class="pin-type">Multi-day Trekking</p>
+                            <p>High-altitude trekking route traversing the rugged Dolomites of Italy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 4: Peru -->
+                    <div class="map-pin" style="top: 61%; left: 32.5%;" data-location="peru">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Salkantay Trek</h4>
+                            <p class="pin-type">Multi-day Trekking</p>
+                            <p>Traversing glaciers and mountain passes in the Peruvian Andes to Machu Picchu.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 5: Washington -->
+                    <div class="map-pin" style="top: 26.5%; left: 16%;" data-location="washington">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Washington State</h4>
+                            <p class="pin-type">Home &amp; Campervan Base</p>
+                            <p>The starting point for family campervan road trips extending to Canada, Idaho, and Texas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 6: Texas -->
+                    <div class="map-pin" style="top: 41%; left: 23%;" data-location="texas">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Austin, Texas</h4>
+                            <p class="pin-type">Marathon &amp; Campervan Route</p>
+                            <p>Destination for campervan journeys, and location of the Austin Full Marathon.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pin 7: Brooklyn -->
+                    <div class="map-pin" style="top: 33.5%; left: 27.5%;" data-location="brooklyn">
+                        <div class="pin-pulse"></div>
+                        <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pin-tooltip">
+                            <h4>Brooklyn, New York</h4>
+                            <p class="pin-type">Distance Running</p>
+                            <p>Completed the Brooklyn Full Marathon across New York City.</p>
+                        </div>
                     </div>
                 </div>
 
