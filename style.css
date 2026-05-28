@@ -1320,7 +1320,6 @@ body.dark-mode .floating-dock {
     max-width: 1000px;
     margin: 0 auto;
     border-radius: 20px;
-    overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
     background-color: #FFFFFF;
@@ -1386,6 +1385,7 @@ body.dark-mode .map-bg {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 20px;
 }
 
 .map-pin {
@@ -1495,6 +1495,114 @@ body.dark-mode .pin-tooltip::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+/* Directional Tooltip Alignments to Prevent Clipping */
+
+/* Top-Left */
+.map-pin.tooltip-top-left .pin-tooltip {
+    left: 0;
+    transform: translateX(0) translateY(10px);
+}
+.map-pin.tooltip-top-left:hover .pin-tooltip {
+    transform: translateX(0) translateY(0);
+}
+.map-pin.tooltip-top-left .pin-tooltip::after,
+.map-pin.tooltip-top-left .pin-tooltip::before {
+    left: 12px;
+    transform: none;
+}
+
+/* Top-Right */
+.map-pin.tooltip-top-right .pin-tooltip {
+    left: auto;
+    right: 0;
+    transform: translateX(0) translateY(10px);
+}
+.map-pin.tooltip-top-right:hover .pin-tooltip {
+    transform: translateX(0) translateY(0);
+}
+.map-pin.tooltip-top-right .pin-tooltip::after,
+.map-pin.tooltip-top-right .pin-tooltip::before {
+    left: auto;
+    right: 12px;
+    transform: none;
+}
+
+/* Bottom-Center */
+.map-pin.tooltip-bottom-center .pin-tooltip {
+    bottom: auto;
+    top: 35px;
+    transform: translateX(-50%) translateY(-10px);
+}
+.map-pin.tooltip-bottom-center:hover .pin-tooltip {
+    transform: translateX(-50%) translateY(0);
+}
+.map-pin.tooltip-bottom-center .pin-tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent var(--bg-card) transparent;
+}
+.map-pin.tooltip-bottom-center .pin-tooltip::before {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent var(--border-color) transparent;
+    z-index: -1;
+}
+
+/* Bottom-Left */
+.map-pin.tooltip-bottom-left .pin-tooltip {
+    bottom: auto;
+    top: 35px;
+    left: 0;
+    transform: translateX(0) translateY(-10px);
+}
+.map-pin.tooltip-bottom-left:hover .pin-tooltip {
+    transform: translateX(0) translateY(0);
+}
+.map-pin.tooltip-bottom-left .pin-tooltip::after {
+    top: auto;
+    bottom: 100%;
+    left: 12px;
+    transform: none;
+    border-color: transparent transparent var(--bg-card) transparent;
+}
+.map-pin.tooltip-bottom-left .pin-tooltip::before {
+    top: auto;
+    bottom: 100%;
+    left: 12px;
+    transform: none;
+    border-color: transparent transparent var(--border-color) transparent;
+    z-index: -1;
+}
+
+/* Bottom-Right */
+.map-pin.tooltip-bottom-right .pin-tooltip {
+    bottom: auto;
+    top: 35px;
+    left: auto;
+    right: 0;
+    transform: translateX(0) translateY(-10px);
+}
+.map-pin.tooltip-bottom-right:hover .pin-tooltip {
+    transform: translateX(0) translateY(0);
+}
+.map-pin.tooltip-bottom-right .pin-tooltip::after {
+    top: auto;
+    bottom: 100%;
+    left: auto;
+    right: 12px;
+    transform: none;
+    border-color: transparent transparent var(--bg-card) transparent;
+}
+.map-pin.tooltip-bottom-right .pin-tooltip::before {
+    top: auto;
+    bottom: 100%;
+    left: auto;
+    right: 12px;
+    transform: none;
+    border-color: transparent transparent var(--border-color) transparent;
+    z-index: -1;
 }
 
 .pin-tooltip h4 {
