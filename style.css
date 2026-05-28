@@ -538,12 +538,12 @@ body.dark-mode .main-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .card-philosophy .card-header {
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
 }
 
@@ -554,7 +554,7 @@ body.dark-mode .main-header {
     line-height: 1.4;
     color: var(--accent);
     margin-top: 8px;
-    text-align: center;
+    text-align: left;
     font-weight: 600;
 }
 
@@ -565,7 +565,7 @@ body.dark-mode .main-header {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    text-align: center;
+    text-align: left;
 }
 
 /* Bento Image and Interest Cards */
@@ -589,10 +589,10 @@ body.dark-mode .main-header {
     transform: scale(1.05);
 }
 
-.interests-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.interests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     margin-top: 16px;
 }
 
@@ -1190,13 +1190,5 @@ body.dark-mode .floating-dock {
         width: 120px;
         height: 120px;
         border-radius: 50%;
-    }
-}
-
-/* Extra small devices query for interests grid collapse */
-@media (max-width: 480px) {
-    .interests-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
     }
 }
