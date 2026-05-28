@@ -1288,6 +1288,11 @@ body.dark-mode .floating-dock {
     padding: 40px 0;
 }
 
+.travel-map-section .section-header {
+    max-width: 1000px;
+    margin-bottom: 24px;
+}
+
 .map-container {
     position: relative;
     width: 100%;
