@@ -452,12 +452,12 @@ body.dark-mode .main-header {
 
 .about-photo-wrapper {
     flex-shrink: 0;
-    width: 180px;
-    height: 240px;
-    border-radius: 12px;
+    width: 240px;
+    height: 360px;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .about-photo {
@@ -1386,6 +1386,26 @@ body.dark-mode .pin-tooltip::after {
     font-size: 0.8rem;
     line-height: 1.4;
     color: var(--text-secondary);
+}
+
+/* Pin Colors - Red for Personal, Blue for Professional */
+.pin-red .pin-dot {
+    background-color: #E63946;
+}
+.pin-red .pin-pulse {
+    background-color: #E63946;
+}
+.pin-blue .pin-dot {
+    background-color: #457B9D;
+}
+.pin-blue .pin-pulse {
+    background-color: #457B9D;
+}
+.pin-red:hover .pin-dot {
+    background-color: #D62828;
+}
+.pin-blue:hover .pin-dot {
+    background-color: #1D3557;
 }
 
 @media (max-width: 600px) {
