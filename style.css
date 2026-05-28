@@ -1285,12 +1285,12 @@ body.dark-mode .floating-dock {
 /* Travel Map Section Styles */
 .travel-map-section {
     background-color: var(--bg-secondary);
-    padding: 40px 0;
+    padding: 15px 0;
 }
 
 .travel-map-section .section-header {
     max-width: 1000px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .map-container {
@@ -1308,7 +1308,7 @@ body.dark-mode .floating-dock {
 
 .map-legend {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     left: 20px;
     background-color: rgba(253, 251, 247, 0.95);
     border: 1px solid var(--border-color);
@@ -1533,6 +1533,7 @@ body.dark-mode .pin-tooltip::after {
     }
     .map-legend {
         position: relative;
+        top: auto;
         bottom: auto;
         left: auto;
         margin: 16px auto 0 auto;
