@@ -197,18 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             })
             .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Form submission failed');
-                }
+                return response.json().then(data => {
+                    if (response.ok) {
+                        return data;
+                    } else {
+                        throw new Error(data.message || 'Form submission failed');
+                    }
+                });
             })
             .then(data => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
                 
                 // Show success status
-                formStatus.classList.add('success');
+                formStatus.className = 'form-status-message success';
                 formStatus.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent to Patricia.';
                 
                 // Reset form fields
@@ -226,8 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
-                formStatus.classList.add('error');
-                formStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Oops! Something went wrong. Please try again.';
+                formStatus.className = 'form-status-message error';
+                
+                // Check if the error message mentions activation
+                if (error.message && error.message.toLowerCase().includes('activate')) {
+                    formStatus.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> FormSubmit requires email activation first. Please check your inbox at <strong>patriciamww.chang@gmail.com</strong> for an activation email from FormSubmit and click the link.';
+                } else {
+                    formStatus.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Oops! Something went wrong. ' + error.message;
+                }
                 console.error('Error submitting form:', error);
             });
         });
