@@ -162,6 +162,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', syncNavActiveItem);
     syncNavActiveItem();
 
-
+    /* ==========================================================================
+       6. Contact Form Success Redirection Check
+       ========================================================================== */
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        const formStatus = document.getElementById('form-status');
+        if (formStatus) {
+            formStatus.textContent = 'Thanks, your message has been sent to Patricia!';
+            formStatus.className = 'form-status-message success';
+            
+            // Scroll to the contact section so the user sees the confirmation
+            const contactSection = document.getElementById('letsconnect');
+            if (contactSection) {
+                setTimeout(() => {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            }
+            
+            // Clean up query parameters in URL bar without refreshing
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
 
 });

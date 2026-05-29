@@ -701,7 +701,7 @@
                             <!-- Custom email subject -->
                             <input type="hidden" name="subject" value="New Portfolio Contact Message!">
                             <!-- Redirect page on success -->
-                            <input type="hidden" name="redirect" value="https://pchang-ai.github.io/patriciamchang/">
+                            <input type="hidden" name="redirect" value="https://pchang-ai.github.io/patriciamchang/?submitted=true">
                             <!-- Honeypot Spam Protection -->
                             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                             
@@ -718,6 +718,7 @@
                                 <textarea name="message" id="form-message" rows="5" required placeholder="Hi Patricia, I would love to connect about..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">Send Message</button>
+                            <div id="form-status" class="form-status-message"></div>
                         </form>
                 </div>
 
