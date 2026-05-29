@@ -1293,6 +1293,10 @@ body.dark-mode .floating-dock {
         height: 280px;
         border-radius: 12px;
     }
+
+    .about-photo {
+        object-position: center 20%;
+    }
 }
 
 /* Travel Map Section Styles */
