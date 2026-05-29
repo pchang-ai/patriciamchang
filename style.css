@@ -1302,17 +1302,29 @@ body.dark-mode .floating-dock {
     overflow: visible;
 }
 
-.section-header-map {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 30px;
+.section-header-map-vertical {
     margin: 0 auto 24px auto;
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
-.map-header-content {
-    flex: 1;
+.section-header-map-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.map-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .map-container {
@@ -1663,11 +1675,15 @@ body.dark-mode .pin-tooltip::after {
     .pin-tooltip p:not(.pin-type) {
         font-size: 0.75rem;
     }
-    .section-header-map {
+    .section-header-map-top {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
+    }
+    .map-header-actions {
+        width: 100%;
+        justify-content: space-between;
     }
     .map-legend-outside {
         align-self: center;
@@ -1675,5 +1691,84 @@ body.dark-mode .pin-tooltip::after {
         width: fit-content;
         justify-content: center;
     }
+}
+
+/* Drag and Drop Editor Mode Styles */
+.map-container.edit-mode .map-pin {
+    cursor: move;
+}
+.map-container.edit-mode .map-pin .pin-pulse {
+    animation: none;
+    border: 2px dashed var(--accent);
+    transform: scale(1.3);
+    opacity: 0.8;
+}
+
+#map-coordinates-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 24px;
+    width: 340px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 1000;
+    font-family: var(--font-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#map-coordinates-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+#map-coordinates-panel h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+#close-coords-panel {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+#close-coords-panel:hover {
+    color: var(--accent);
+}
+
+#map-coordinates-panel p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+#coords-output {
+    width: 100%;
+    height: 140px;
+    font-family: monospace;
+    font-size: 0.72rem;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    resize: none;
+    outline: none;
+}
+
+#copy-coords-btn {
+    width: 100%;
 }
 

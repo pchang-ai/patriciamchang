@@ -44,18 +44,18 @@
                     <!-- Top Navigation Bar under hero asset -->
                     <nav class="hero-navigation" aria-label="Main Navigation">
                         <a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> <span>Home</span></a>
-                        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> <span>Overview</span></a>
-                        <a href="#travel-map" class="nav-link"><i class="fa-solid fa-earth-americas"></i> <span>Global Footprint</span></a>
-                        <a href="#timeline" class="nav-link"><i class="fa-solid fa-timeline"></i> <span>History</span></a>
-                        <a href="#downtime" class="nav-link"><i class="fa-solid fa-mountain-sun"></i> <span>Beyond the Resume</span></a>
-                        <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Let's Connect</span></a>
+                        <a href="#overview" class="nav-link"><i class="fa-solid fa-user"></i> <span>Overview</span></a>
+                        <a href="#globalfootprint" class="nav-link"><i class="fa-solid fa-earth-americas"></i> <span>Global Footprint</span></a>
+                        <a href="#careerhistory" class="nav-link"><i class="fa-solid fa-timeline"></i> <span>History</span></a>
+                        <a href="#beyondtheresume" class="nav-link"><i class="fa-solid fa-mountain-sun"></i> <span>Beyond the Resume</span></a>
+                        <a href="#letsconnect" class="nav-link"><i class="fa-solid fa-envelope"></i> <span>Let's Connect</span></a>
                     </nav>
                 </div>
             </div>
         </section>
 
         <!-- Bento Grid Overview -->
-        <section id="about" class="about-section section-padding">
+        <section id="overview" class="about-section section-padding">
             <div class="container">
                 <div class="section-header fade-in-up">
                     <h2 class="section-title">Overview</h2>
@@ -181,28 +181,31 @@
         </section>
 
         <!-- Globetrotting Map Section (Right under Overview) -->
-        <section id="travel-map" class="travel-map-section section-padding">
+        <section id="globalfootprint" class="travel-map-section section-padding">
             <div class="container">
-                <div class="section-header-map fade-in-up">
-                    <div class="map-header-content">
+                <div class="section-header-map-vertical fade-in-up">
+                    <div class="section-header-map-top">
                         <h2 class="section-title">Global Footprint</h2>
-                        <p class="section-subtitle">
-                            Professionally, I help matrixed teams find a common language to deliver complex projects.<br>
-                            Personally, I thrive on navigating the unfamiliar and uncomfortable.<br>
-                            I've found that the most challenging terrain always yields the most rewarding growth. Check out my footprint below!
-                        </p>
-                    </div>
-                    <!-- Map Legend (Moved outside map to the side) -->
-                    <div class="map-legend-outside">
-                        <div class="legend-item">
-                            <span class="legend-dot dot-blue"><i class="fa-solid fa-briefcase"></i></span>
-                            <span class="legend-label">Professional</span>
+                        <div class="map-header-actions">
+                            <button id="enable-map-edit" class="btn btn-secondary btn-sm" aria-label="Toggle map edit mode">
+                                <i class="fa-solid fa-pen-to-square"></i> <span>Drag Pins (Fine-tune)</span>
+                            </button>
+                            <!-- Map Legend -->
+                            <div class="map-legend-outside">
+                                <div class="legend-item">
+                                    <span class="legend-dot dot-blue"><i class="fa-solid fa-briefcase"></i></span>
+                                    <span class="legend-label">Professional</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot dot-red"><i class="fa-solid fa-location-dot"></i></span>
+                                    <span class="legend-label">Personal</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-dot dot-red"><i class="fa-solid fa-location-dot"></i></span>
-                            <span class="legend-label">Personal</span>
-                        </div>
                     </div>
+                    <p class="section-subtitle">
+                        Professionally, I help matrixed teams find a common language to deliver complex projects. Personally, I thrive on navigating the unfamiliar and uncomfortable. I've found that the most challenging terrain always yields the most rewarding growth. Check out my footprint below!
+                    </p>
                 </div>
 
                 <div class="map-container fade-in-up">
@@ -210,7 +213,7 @@
                     
                     <!-- Map Pins -->
                     <!-- Chamonix, France (Tour du Mont Blanc) -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 15.29%; left: 53.8%;" data-location="tmb">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 19.7%; left: 50.6%;" data-location="tmb">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -220,7 +223,7 @@
                         </div>
                     </div>
                     <!-- Dolomites, Italy (Alta Via 2) -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 15.09%; left: 54.6%;" data-location="altavia">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 19.1%; left: 51.3%;" data-location="altavia">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -230,7 +233,7 @@
                         </div>
                     </div>
                     <!-- Khumbu Region, Nepal (Everest Base Camp) -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 34.44%; left: 75.78%;" data-location="nepal">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 40.8%; left: 72.5%;" data-location="nepal">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -240,7 +243,7 @@
                         </div>
                     </div>
                     <!-- Andes Mountains, Peru (Salkantay Trek) -->
-                    <div class="map-pin pin-red tooltip-top-left" style="top: 57.41%; left: 31.67%;" data-location="peru">
+                    <div class="map-pin pin-red tooltip-top-left" style="top: 53%; left: 25.5%;" data-location="peru">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -250,7 +253,7 @@
                         </div>
                     </div>
                     <!-- Albania (The Albanian Alps) -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 16.89%; left: 56.2%;" data-location="albania">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 20.2%; left: 53.2%;" data-location="albania">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -260,7 +263,7 @@
                         </div>
                     </div>
                     <!-- Tokyo & Kyoto, Japan -->
-                    <div class="map-pin pin-red tooltip-top-right" style="top: 21.52%; left: 87.34%;" data-location="japan">
+                    <div class="map-pin pin-red tooltip-top-right" style="top: 26%; left: 90.8%;" data-location="japan">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -270,7 +273,7 @@
                         </div>
                     </div>
                     <!-- Taipei, Taiwan -->
-                    <div class="map-pin pin-red tooltip-top-right" style="top: 33.01%; left: 84.71%;" data-location="taiwan">
+                    <div class="map-pin pin-red tooltip-top-right" style="top: 32.5%; left: 87.5%;" data-location="taiwan">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -280,7 +283,7 @@
                         </div>
                     </div>
                     <!-- Iceland (The Ring Road) -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 4.69%; left: 43.6%;" data-location="iceland">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 4.7%; left: 43.6%;" data-location="iceland">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -290,7 +293,7 @@
                         </div>
                     </div>
                     <!-- Cape Town & Kruger, South Africa -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 69.46%; left: 52.78%;" data-location="south-africa">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 69.2%; left: 53.4%;" data-location="south-africa">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -300,7 +303,7 @@
                         </div>
                     </div>
                     <!-- Cambodia -->
-                    <div class="map-pin pin-red tooltip-top-right" style="top: 42.34%; left: 81.03%;" data-location="cambodia">
+                    <div class="map-pin pin-red tooltip-top-right" style="top: 46.5%; left: 78%;" data-location="cambodia">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -310,7 +313,7 @@
                         </div>
                     </div>
                     <!-- Mysore, India -->
-                    <div class="map-pin pin-red tooltip-top-center" style="top: 43.77%; left: 73.16%;" data-location="mysore">
+                    <div class="map-pin pin-red tooltip-top-center" style="top: 47.5%; left: 70%;" data-location="mysore">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="pin-tooltip">
@@ -320,7 +323,7 @@
                         </div>
                     </div>
                     <!-- Austin, TX (UT Austin) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 29.42%; left: 19.91%;" data-location="austin-bba">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 30.2%; left: 18.3%;" data-location="austin-bba">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -330,7 +333,7 @@
                         </div>
                     </div>
                     <!-- Singapore (Singapore American School) -->
-                    <div class="map-pin pin-blue tooltip-top-right" style="top: 49.78%; left: 78.3%;" data-location="singapore-sas">
+                    <div class="map-pin pin-blue tooltip-top-right" style="top: 50.2%; left: 76.6%;" data-location="singapore-sas">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -340,7 +343,7 @@
                         </div>
                     </div>
                     <!-- Hong Kong, China (HKUST Business School) -->
-                    <div class="map-pin pin-blue tooltip-top-right" style="top: 34.44%; left: 84.18%;" data-location="hkust">
+                    <div class="map-pin pin-blue tooltip-top-right" style="top: 35.2%; left: 82.1%;" data-location="hkust">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -350,7 +353,7 @@
                         </div>
                     </div>
                     <!-- Seattle, WA (Deloitte Strategy & Operations) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 9.29%; left: 16%;" data-location="seattle-deloitte">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 23.8%; left: 10.8%;" data-location="seattle-deloitte">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -360,7 +363,7 @@
                         </div>
                     </div>
                     <!-- Houston, TX (Deloitte Strategy & Operations) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 30.85%; left: 21.17%;" data-location="houston-deloitte">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 30.4%; left: 18.9%;" data-location="houston-deloitte">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -370,7 +373,7 @@
                         </div>
                     </div>
                     <!-- New York, NY (JPMorgan Chase & Co.) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 16.5%; left: 25.9%;" data-location="ny-jpmorgan">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 25.5%; left: 23.8%;" data-location="ny-jpmorgan">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -380,7 +383,7 @@
                         </div>
                     </div>
                     <!-- Columbus, OH (JPMorgan Chase & Co.) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 17.94%; left: 24.32%;" data-location="columbus-jpmorgan">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 25.6%; left: 22.2%;" data-location="columbus-jpmorgan">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -390,7 +393,7 @@
                         </div>
                     </div>
                     <!-- New Delhi, India (Global Training Delivery) -->
-                    <div class="map-pin pin-blue tooltip-top-center" style="top: 30.85%; left: 72.63%;" data-location="newdelhi-training">
+                    <div class="map-pin pin-blue tooltip-top-center" style="top: 41.5%; left: 70.5%;" data-location="newdelhi-training">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -400,7 +403,7 @@
                         </div>
                     </div>
                     <!-- Toronto, Canada (Global Training Delivery) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 14.35%; left: 25.9%;" data-location="toronto-training">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 24.9%; left: 22.8%;" data-location="toronto-training">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -410,7 +413,7 @@
                         </div>
                     </div>
                     <!-- Los Angeles, CA (Global Training Delivery) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 20.81%; left: 17%;" data-location="la-training">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 28.5%; left: 12.8%;" data-location="la-training">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -420,7 +423,7 @@
                         </div>
                     </div>
                     <!-- Dallas, TX (Global Training Delivery) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 27.98%; left: 20.12%;" data-location="dallas-training">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 29.1%; left: 18.5%;" data-location="dallas-training">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -430,7 +433,7 @@
                         </div>
                     </div>
                     <!-- Bellevue, WA (T-Mobile) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 9.29%; left: 16.6%;" data-location="bellevue-tmobile">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 23.8%; left: 11.6%;" data-location="bellevue-tmobile">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -440,7 +443,7 @@
                         </div>
                     </div>
                     <!-- San Jose, Costa Rica (Shared Services Center) -->
-                    <div class="map-pin pin-blue tooltip-top-left" style="top: 45.29%; left: 26.6%;" data-location="costarica-ssc">
+                    <div class="map-pin pin-blue tooltip-top-left" style="top: 44.8%; left: 22%;" data-location="costarica-ssc">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -450,7 +453,7 @@
                         </div>
                     </div>
                     <!-- Shenzhen, China (Global Change Management) -->
-                    <div class="map-pin pin-blue tooltip-top-right" style="top: 34.73%; left: 83.97%;" data-location="shenzhen-erp">
+                    <div class="map-pin pin-blue tooltip-top-right" style="top: 35%; left: 81.3%;" data-location="shenzhen-erp">
                         <div class="pin-pulse"></div>
                         <div class="pin-dot"><i class="fa-solid fa-briefcase"></i></div>
                         <div class="pin-tooltip">
@@ -469,7 +472,7 @@
         </section>
 
         <!-- Dynamic Timeline (Career History) -->
-        <section id="timeline" class="timeline-section section-padding">
+        <section id="careerhistory" class="timeline-section section-padding">
             <div class="container">
                 <div class="section-header fade-in-up">
                     <h2 class="section-title">Career History</h2>
@@ -607,7 +610,7 @@
         </section>
 
         <!-- Beyond the Resume Section -->
-        <section id="downtime" class="downtime-section section-padding">
+        <section id="beyondtheresume" class="downtime-section section-padding">
             <div class="container">
                 <div class="section-header fade-in-up">
                     <h2 class="section-title">Beyond the Resume</h2>
@@ -653,7 +656,7 @@
         </section>
 
         <!-- Let's Connect Section -->
-        <section id="contact" class="contact-section section-padding">
+        <section id="letsconnect" class="contact-section section-padding">
             <div class="container">
                 <div class="contact-box fade-in-up">
                     <div class="contact-details">

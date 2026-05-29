@@ -232,4 +232,152 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* ==========================================================================
+       7. Interactive Map Pin Drag & Drop Coordinate Editor
+       ========================================================================== */
+    const editBtn = document.getElementById('enable-map-edit');
+    const mapContainer = document.querySelector('.map-container');
+
+    if (editBtn && mapContainer) {
+        let editMode = false;
+        let dragTarget = null;
+        
+        // Create floating output box
+        const outputPanel = document.createElement('div');
+        outputPanel.id = 'map-coordinates-panel';
+        outputPanel.style.display = 'none';
+        outputPanel.innerHTML = `
+            <div class="panel-header">
+                <h4>Map Coordinates Editor</h4>
+                <button id="close-coords-panel" aria-label="Close panel">&times;</button>
+            </div>
+            <p>Drag any pin on the map. Copy the updated coordinates below:</p>
+            <textarea id="coords-output" readonly></textarea>
+            <button id="copy-coords-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-copy"></i> Copy Coordinates</button>
+        `;
+        document.body.appendChild(outputPanel);
+        
+        const closeBtn = document.getElementById('close-coords-panel');
+        const copyBtn = document.getElementById('copy-coords-btn');
+        const textarea = document.getElementById('coords-output');
+        
+        const updateCoordinatesOutput = () => {
+            const pins = mapContainer.querySelectorAll('.map-pin');
+            let coordsLines = [];
+            pins.forEach(pin => {
+                const name = pin.querySelector('h4').textContent;
+                const top = pin.style.top;
+                const left = pin.style.left;
+                coordsLines.push(`/* ${name} */\ntop: ${top}; left: ${left};`);
+            });
+            textarea.value = coordsLines.join('\n\n');
+        };
+        
+        editBtn.addEventListener('click', () => {
+            editMode = !editMode;
+            if (editMode) {
+                editBtn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Done Editing</span>';
+                editBtn.classList.remove('btn-secondary');
+                editBtn.classList.add('btn-primary');
+                mapContainer.classList.add('edit-mode');
+                outputPanel.style.display = 'flex';
+                updateCoordinatesOutput();
+            } else {
+                editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> <span>Drag Pins (Fine-tune)</span>';
+                editBtn.classList.remove('btn-primary');
+                editBtn.classList.add('btn-secondary');
+                mapContainer.classList.remove('edit-mode');
+                outputPanel.style.display = 'none';
+            }
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            editBtn.click();
+        });
+        
+        copyBtn.addEventListener('click', () => {
+            textarea.select();
+            document.execCommand('copy');
+            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Coordinates';
+            }, 2000);
+        });
+        
+        // Mouse dragging logic
+        mapContainer.addEventListener('mousedown', (e) => {
+            if (!editMode) return;
+            const pin = e.target.closest('.map-pin');
+            if (!pin) return;
+            
+            e.preventDefault();
+            dragTarget = pin;
+            
+            const mapRect = mapContainer.getBoundingClientRect();
+            
+            const onMouseMove = (moveEvent) => {
+                if (!dragTarget) return;
+                const x = moveEvent.clientX - mapRect.left;
+                const y = moveEvent.clientY - mapRect.top;
+                
+                let pctX = (x / mapRect.width) * 100;
+                let pctY = (y / mapRect.height) * 100;
+                
+                pctX = Math.max(0, Math.min(100, pctX));
+                pctY = Math.max(0, Math.min(100, pctY));
+                
+                dragTarget.style.left = `${pctX.toFixed(1)}%`;
+                dragTarget.style.top = `${pctY.toFixed(1)}%`;
+                
+                updateCoordinatesOutput();
+            };
+            
+            const onMouseUp = () => {
+                dragTarget = null;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            };
+            
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+        
+        // Touch dragging logic for mobile/tablet devices
+        mapContainer.addEventListener('touchstart', (e) => {
+            if (!editMode) return;
+            const pin = e.target.closest('.map-pin');
+            if (!pin) return;
+            
+            dragTarget = pin;
+            const mapRect = mapContainer.getBoundingClientRect();
+            
+            const onTouchMove = (moveEvent) => {
+                if (!dragTarget) return;
+                const touch = moveEvent.touches[0];
+                const x = touch.clientX - mapRect.left;
+                const y = touch.clientY - mapRect.top;
+                
+                let pctX = (x / mapRect.width) * 100;
+                let pctY = (y / mapRect.height) * 100;
+                
+                pctX = Math.max(0, Math.min(100, pctX));
+                pctY = Math.max(0, Math.min(100, pctY));
+                
+                dragTarget.style.left = `${pctX.toFixed(1)}%`;
+                dragTarget.style.top = `${pctY.toFixed(1)}%`;
+                
+                updateCoordinatesOutput();
+            };
+            
+            const onTouchEnd = () => {
+                dragTarget = null;
+                document.removeEventListener('touchmove', onTouchMove);
+                document.removeEventListener('touchend', onTouchEnd);
+            };
+            
+            document.addEventListener('touchmove', onTouchMove);
+            document.addEventListener('touchend', onTouchEnd);
+        });
+    }
 });
