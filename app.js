@@ -185,4 +185,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ==========================================================================
+       7. Interactive Map Pin Click Toggles (Desktop Click & Mobile Taps)
+       ========================================================================== */
+    const mapPins = document.querySelectorAll('.map-pin');
+    mapPins.forEach(pin => {
+        pin.addEventListener('click', (e) => {
+            // Prevent close toggle if clicking inside the open tooltip text/links
+            if (e.target.closest('.pin-tooltip')) {
+                return;
+            }
+            
+            e.stopPropagation();
+            const isActive = pin.classList.contains('active-tooltip');
+            
+            // Close all tooltips first
+            mapPins.forEach(p => p.classList.remove('active-tooltip'));
+            
+            // Toggle clicked pin tooltip
+            if (!isActive) {
+                pin.classList.add('active-tooltip');
+            }
+        });
+    });
+
+    // Close active tooltips when clicking outside
+    document.addEventListener('click', () => {
+        mapPins.forEach(p => p.classList.remove('active-tooltip'));
+    });
+
 });

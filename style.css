@@ -1362,6 +1362,40 @@ body.dark-mode .map-legend-outside {
     background-color: rgba(24, 32, 48, 0.95);
 }
 
+.map-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(253, 251, 247, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px 18px;
+    z-index: 15;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+body.dark-mode .map-hint {
+    background-color: rgba(24, 32, 48, 0.95);
+}
+
+.map-hint i {
+    color: var(--accent);
+    font-size: 0.95rem;
+    animation: hintGlow 2s infinite ease-in-out;
+}
+
+@keyframes hintGlow {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
 .legend-item {
     display: flex;
     align-items: center;
@@ -1512,7 +1546,8 @@ body.dark-mode .pin-tooltip::after {
     border-color: var(--bg-card) transparent transparent transparent;
 }
 
-.map-pin:hover .pin-tooltip {
+.map-pin:hover .pin-tooltip,
+.map-pin.active-tooltip .pin-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -1525,7 +1560,8 @@ body.dark-mode .pin-tooltip::after {
     left: 0;
     transform: translateX(0) translateY(10px);
 }
-.map-pin.tooltip-top-left:hover .pin-tooltip {
+.map-pin.tooltip-top-left:hover .pin-tooltip,
+.map-pin.tooltip-top-left.active-tooltip .pin-tooltip {
     transform: translateX(0) translateY(0);
 }
 .map-pin.tooltip-top-left .pin-tooltip::after,
@@ -1540,7 +1576,8 @@ body.dark-mode .pin-tooltip::after {
     right: 0;
     transform: translateX(0) translateY(10px);
 }
-.map-pin.tooltip-top-right:hover .pin-tooltip {
+.map-pin.tooltip-top-right:hover .pin-tooltip,
+.map-pin.tooltip-top-right.active-tooltip .pin-tooltip {
     transform: translateX(0) translateY(0);
 }
 .map-pin.tooltip-top-right .pin-tooltip::after,
@@ -1556,7 +1593,8 @@ body.dark-mode .pin-tooltip::after {
     top: 35px;
     transform: translateX(-50%) translateY(-10px);
 }
-.map-pin.tooltip-bottom-center:hover .pin-tooltip {
+.map-pin.tooltip-bottom-center:hover .pin-tooltip,
+.map-pin.tooltip-bottom-center.active-tooltip .pin-tooltip {
     transform: translateX(-50%) translateY(0);
 }
 .map-pin.tooltip-bottom-center .pin-tooltip::after {
@@ -1578,7 +1616,8 @@ body.dark-mode .pin-tooltip::after {
     left: 0;
     transform: translateX(0) translateY(-10px);
 }
-.map-pin.tooltip-bottom-left:hover .pin-tooltip {
+.map-pin.tooltip-bottom-left:hover .pin-tooltip,
+.map-pin.tooltip-bottom-left.active-tooltip .pin-tooltip {
     transform: translateX(0) translateY(0);
 }
 .map-pin.tooltip-bottom-left .pin-tooltip::after {
@@ -1605,7 +1644,8 @@ body.dark-mode .pin-tooltip::after {
     right: 0;
     transform: translateX(0) translateY(-10px);
 }
-.map-pin.tooltip-bottom-right:hover .pin-tooltip {
+.map-pin.tooltip-bottom-right:hover .pin-tooltip,
+.map-pin.tooltip-bottom-right.active-tooltip .pin-tooltip {
     transform: translateX(0) translateY(0);
 }
 .map-pin.tooltip-bottom-right .pin-tooltip::after {
@@ -1687,12 +1727,16 @@ body.dark-mode .pin-tooltip::after {
     }
     .map-header-actions {
         width: 100%;
-        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
     .map-legend-outside {
-        align-self: center;
-        margin: 0 auto;
-        width: fit-content;
-        justify-content: center;
+        margin: 0;
+        align-self: auto;
+    }
+    .map-hint {
+        margin: 0;
     }
 }
