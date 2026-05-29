@@ -695,11 +695,15 @@
                         </div>
                     </div>
                     
-                        <form action="https://formsubmit.co/patriciamww.chang@gmail.com" method="POST" class="contact-form">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                             <!-- Custom email subject -->
-                            <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+                            <input type="hidden" name="subject" value="New Portfolio Contact Message!">
                             <!-- Redirect page on success -->
-                            <input type="hidden" name="_next" value="https://pchang-ai.github.io/patriciamchang/">
+                            <input type="hidden" name="redirect" value="https://pchang-ai.github.io/patriciamchang/">
+                            <!-- Honeypot Spam Protection -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                             
                             <div class="form-group">
                                 <label for="form-name">Name</label>
